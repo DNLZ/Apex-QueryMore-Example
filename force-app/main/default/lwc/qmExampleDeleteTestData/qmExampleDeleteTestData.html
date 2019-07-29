@@ -1,0 +1,14 @@
+<!-- Qm Example Delete Test Data -->
+<template>
+    <lightning-card title="Delete Test Data">
+        <div class=slds-m-horizontal_medium>
+            <lightning-button label="Delete All Test Data"
+                              onclick={handleDeleteAllTestDataButtonPress}
+                              variant="destructive">
+            </lightning-button>
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>

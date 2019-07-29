@@ -1,0 +1,17 @@
+<!-- QueryMore Table Example -->
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <div class="slds-m-bottom--medium">
+                <c-qm-example-create-test-data></c-qm-example-create-test-data>
+            </div>
+            <lightning-card title="Delete Test Data">
+                <lightning-button label="Delete All Test Data" onclick={handleDeleteAllTestDataButtonPress}
+                                  variant="destructive"></lightning-button>
+            </lightning-card>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <c-qm-example-data-table></c-qm-example-data-table>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

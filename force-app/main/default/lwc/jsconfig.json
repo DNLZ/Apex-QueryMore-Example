@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/queryMoreTableExample": [
+                "queryMoreTableExample/queryMoreTableExample.js"
+            ],
+            "c/qmExampleDataTable": [
+                "qmExampleDataTable/qmExampleDataTable.js"
+            ],
+            "c/qmExampleCreateTestData": [
+                "qmExampleCreateTestData/qmExampleCreateTestData.js"
+            ],
+            "c/qmExampleDeleteTestData": [
+                "qmExampleDeleteTestData/qmExampleDeleteTestData.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

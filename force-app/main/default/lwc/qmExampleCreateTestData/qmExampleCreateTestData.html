@@ -1,0 +1,17 @@
+<!-- Qm Example Create Test Data -->
+<template>
+    <lightning-card title="Create Test Data">
+        <div class="slds-m-horizontal_medium">
+            <lightning-input label="Number of Test Records to Create" type="number"
+                             onchange={handleNumberOfTestRecordsToCreate}
+                             value={numberOfTestRecordsToCreate}
+                             class="slds-m-bottom_medium">
+            </lightning-input>
+            <lightning-button label="Insert Records" onclick={HandleCreateTestDataButtonPress}
+                              variant="success"></lightning-button>
+            <template if:true={loading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>
