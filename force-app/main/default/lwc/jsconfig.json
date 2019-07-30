@@ -3,20 +3,17 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
-            "c/queryMoreTableExample": [
-                "queryMoreTableExample/queryMoreTableExample.js"
-            ],
-            "c/qmExampleDataTable": [
-                "qmExampleDataTable/qmExampleDataTable.js"
+            "c/pubsub": [
+                "pubsub/pubsub.js"
             ],
             "c/qmExampleCreateTestData": [
                 "qmExampleCreateTestData/qmExampleCreateTestData.js"
             ],
+            "c/qmExampleDataTable": [
+                "qmExampleDataTable/qmExampleDataTable.js"
+            ],
             "c/qmExampleDeleteTestData": [
                 "qmExampleDeleteTestData/qmExampleDeleteTestData.js"
-            ],
-            "c/pubsub": [
-                "pubsub/pubsub.js"
             ]
         }
     },

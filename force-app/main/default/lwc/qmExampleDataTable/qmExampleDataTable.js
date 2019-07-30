@@ -9,15 +9,26 @@ import { registerListener, unregisterAllListeners } from 'c/pubsub';
 import getTestData from '@salesforce/apex/QM_Example_LWC_DataTableController.getTestData';
 import getMoreTestData from '@salesforce/apex/QM_Example_LWC_DataTableController.getMoreTestData';
 
+import NAME_FIELD from '@salesforce/schema/Account.Name';
+import NUMBER_OF_EMPLOYEES_FIELD from '@salesforce/schema/Account.NumberOfEmployees';
+
 export default class QmExampleDataTable extends LightningElement {
     @wire(CurrentPageReference) pageRef; // for pubsub
 
     /** lightning-datatable properties **/
     @track data;
     @track columns = [
-        {label: 'Account Name', fieldName: 'Name', type: 'text'},
-        {label: 'Account Number', fieldName: 'AccountNumber', type: 'text'},
-        {label: "Created Date", fieldName: 'CreatedDate', type: 'date'},
+        {
+            label: 'Account Name',
+            fieldName: NAME_FIELD.fieldApiName,
+            type: 'text'
+        },
+        {
+            label: 'Number of Employees',
+            fieldName: NUMBER_OF_EMPLOYEES_FIELD.fieldApiName,
+            type: 'number',
+            cellAttributes: { alignment: 'left' }
+        }
     ];
     @track sortedBy;
     @track sortedDirection;
@@ -104,7 +115,7 @@ export default class QmExampleDataTable extends LightningElement {
                 // TODO: change criteria when this is set to false. Current criteria leads to bad UX
                 this.moreDataAvailableToLoad = false;
             } else {
-                this.data = this.data.concat(newData);
+                this.data = [...this.data, ...newData];
             }
             this.loadingInProgress = false;
         })
@@ -123,7 +134,11 @@ export default class QmExampleDataTable extends LightningElement {
             sortedBy: this.sortedBy,
             sortedDirection : this.sortedDirection,
             lastId: lastRow.Id,
-            lastValueOfSortedField: lastRow[this.sortedBy]
+            lastValueOfSortedField: lastRow[this.sortedBy],
+
+            // This hack is needed to avoid an issue with the LWC sending lastValueOfSortedField as a decimal value
+            // when sorting by the NumberOfEmployees fields
+            sortedFieldIsInteger: this.sortedBy === 'NumberOfEmployees'
         });
     }
 

@@ -12,7 +12,7 @@ public with sharing class QM_Example_LWC_CreateTestDataController {
         for(Integer i = 1; i <= numberOfRecordsToCreate; i++) {
             accountsToInsert.add(new Account(
                     Name = 'Test Account #' + i,
-                    AccountNumber = 'A' + String.valueOf(i).leftPad(7, '0')
+                    NumberOfEmployees = Math.mod(i, 10) + 1
             ));
         }
 
