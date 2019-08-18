@@ -43,7 +43,12 @@ public with sharing class QM_Example_LWC_DataTableController {
      * Gets the first 50 Account records in the DB sorted by Id
      */
     private static List<Account> queryTestDataSortedById() {
-        return [SELECT Name, NumberOfEmployees FROM Account ORDER BY Id LIMIT 50];
+        return [
+            SELECT Name, NumberOfEmployees
+            FROM Account
+            ORDER BY Id
+            LIMIT 50
+        ];
     }
 
     /**
@@ -53,7 +58,13 @@ public with sharing class QM_Example_LWC_DataTableController {
      *               Used to determine the starting row offset of the returned dataset.
      */
     private static List<Account> queryMoreTestDataSortedById(Id lastId) {
-        return [SELECT Name, NumberOfEmployees FROM Account WHERE Id > :lastId ORDER BY Id LIMIT 25];
+        return [
+            SELECT Name, NumberOfEmployees
+            FROM Account
+            WHERE Id > :lastId
+            ORDER BY Id
+            LIMIT 25
+        ];
     }
 
     /**
