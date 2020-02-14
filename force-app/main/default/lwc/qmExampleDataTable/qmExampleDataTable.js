@@ -37,10 +37,6 @@ export default class QmExampleDataTable extends LightningElement {
     @track loadingInProgress = false; // used for turning the spinner on and off
     @track moreDataAvailableToLoad = true;
 
-    get isLoadMoreButtonEnabled() {
-        return !this.moreDataAvailableToLoad;
-    }
-
     connectedCallback() {
         this._registerTestDataChangeListener();
         this._refreshData();
@@ -50,7 +46,8 @@ export default class QmExampleDataTable extends LightningElement {
         unregisterAllListeners(this); // for pubsub
     }
 
-    handleLoadMoreDataButtonClick() {
+    // this is called by the lightning-datatable when more data is needed for infinite scrolling.
+    handleDataTableOnLoadMoreEvent() {
         this._loadMoreDataIntoTable();
     }
 

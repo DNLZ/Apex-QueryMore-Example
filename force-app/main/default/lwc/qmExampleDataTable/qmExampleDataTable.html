@@ -2,26 +2,19 @@
 <template>
     <lightning-card title="Accounts" icon-name="standard:account">
         <lightning-input type="toggle" label="Column Sorting" slot="actions" onchange={handleEnableColumnSortCheckboxChange} class="slds-m-around_large"></lightning-input>
-        <div class="slds-m-horizontal_medium">
+        <div class="slds-m-horizontal_medium slds-p-bottom--large" style="height: 300px">
             <template if:true={data}>
                 <lightning-datatable key-field="Id"
                                      data={data}
                                      columns={columns}
                                      sorted-by={sortedBy}
                                      sorted-direction={sortedDirection}
-                                     onsort={handleSort}>
+                                     onsort={handleSort}
+                                     onloadmore={handleDataTableOnLoadMoreEvent}
+                                     is-loading={loadingInProgress}
+                                     enable-infinite-loading={moreDataAvailableToLoad}>
                 </lightning-datatable>
             </template>
-            <div class=slds-m-top_medium>
-                <lightning-button label="Load More Data"
-                                  onclick={handleLoadMoreDataButtonClick}
-                                  variant="success"
-                                  disabled={isLoadMoreButtonEnabled}>
-                </lightning-button>
-            </div>
         </div>
-        <template if:true={loadingInProgress}>
-            <lightning-spinner alternative-text="Loading"></lightning-spinner>
-        </template>
     </lightning-card>
 </template>
