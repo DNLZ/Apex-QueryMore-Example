@@ -1,7 +1,11 @@
 # Apex QueryMore Example
-An example that demonstrates a method for building QueryMore functionality in Apex to achieve infinite scrolling capabilities without relying on the SOQL OFFSET keyword and the limits that come with it. This technique can also be applied to other use cases where SOQL queries need to be fetched in chunks.
+An example that demonstrates a technique for building "QueryMore" like functionality in Apex.
 
-Blog post: https://sfdc.danielzeidler.com/2019/08/18/building-querymore-functionality-in-apex-a-soql-offset-alternative/
+The example showcases a table with infinite scrolling capabilities that retrieves records from the Salesforce database without relying on the SOQL OFFSET keyword. The technique allows for querying of records beyong the OFFSET keyword limit of 2000.
+
+This approach can also be applied to other use cases where large SOQL queries need to be fetched in chunks.
+
+**See this blog post for more information:** https://sfdc.danielzeidler.com/2019/08/18/building-querymore-functionality-in-apex-a-soql-offset-alternative/
 
 ## Installation via SFDX
 
